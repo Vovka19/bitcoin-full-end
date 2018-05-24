@@ -1,0 +1,11 @@
+Merge #13151: net: Serve blocks directly from disk when possible
+
+0bf4318 net: Serve blocks directly from disk when possible (Wladimir J. van der Laan)
+
+Pull request description:
+
+  In `ProcessGetBlockData`, send the block data directly from disk if type MSG_WITNESS_BLOCK is requested. This is a valid shortcut as the on-disk format matches the network format.
+
+  This is expected to increase performance because a deserialization and subsequent serialization roundtrip is avoided.
+
+Tree-SHA512: 9a9500b4c1354eaae1a6f1c6ef2416c1c1985029852589266f3a70e808f6c7482c135e9ab251a527566935378ab7c32dba4ed43ba5451e802d8e72b77d1ba472
